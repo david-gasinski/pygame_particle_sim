@@ -1,0 +1,5 @@
+WIDTH = 800
+HEIGHT = 800
+GRAVITY = 1
+DIMENSIONS = [WIDTH, HEIGHT]
+TITLE = "Raycasted Particle Simulator"
