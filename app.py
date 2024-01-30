@@ -10,7 +10,7 @@ class App:
         self.running = True
         self.screen = pygame.display.set_mode(DIMENSIONS)
         pygame.display.set_caption(TITLE)
-        self.clock = pygame.Time.Clock()
+        self.clock = pygame.time.Clock()
 
     def run(self):
         while self.running:
