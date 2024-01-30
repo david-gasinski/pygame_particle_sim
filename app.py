@@ -13,16 +13,16 @@ class App:
         self.clock = pygame.Time.Clock()
 
     def run(self):
-        while running:
+        while self.running:
             for evene in pygame.event.get():
                 if event.type == pygame.QUIT:
-                    running = False
+                    self.running = False
                     pygame.quit()
                     sys.exit()
             
             dt = self.clock.tick() / 10000
             self.screen.fill()
-            pygame.display.flip()
+            pygame.display.update()
 
 if __name__ == '__app__':
     app = App()
