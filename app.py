@@ -14,7 +14,7 @@ class App:
 
     def run(self):
         while self.running:
-            for evene in pygame.event.get():
+            for event in pygame.event.get():
                 if event.type == pygame.QUIT:
                     self.running = False
                     pygame.quit()
@@ -24,6 +24,6 @@ class App:
             self.screen.fill()
             pygame.display.update()
 
-if __name__ == '__app__':
+if __name__ == '__main__':
     app = App()
     app.run()
