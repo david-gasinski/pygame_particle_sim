@@ -40,6 +40,8 @@ class Body:
         # update y if terminal hasn't been reached
         self.velocity[0][1] += (GRAVITY * UPDATE_RATE)
 
+
+        print(self.velocity[0][1])
         # d = s * t
         self.pos = self.pos + (self.velocity * UPDATE_RATE) 
 
