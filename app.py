@@ -4,6 +4,7 @@ import sys
 from settings import *
 from body import Body
 import numpy as np
+from physics_engine import PhysicsEngine
 
 class App:
     def __init__(self):
@@ -12,9 +13,11 @@ class App:
         self.running = True
         pygame.display.set_caption(TITLE)
         self.clock = pygame.time.Clock()
-        self.body = Body(np.asarray([[200,200, 100]]), 10000, (0,0,255), 10, BodyType.PARTICLE)
-
+        self.physics = PhysicsEngine()
+        self.physics.body_list.append(Body([[200,200,200]], 100, (0,0,255), 5, BodyType.PARTICLE))
+    
     def run(self):
+        iterations = 0
         while self.running:
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
@@ -26,9 +29,13 @@ class App:
 
             self.screen.fill((255,255,255))
 
-            self.body.update()
-            self.body.render(self.screen)    
+
+            self.physics.run(iterations) 
+
+            for target in self.physics.body_list:
+                target.render(self.screen)
         
+            iterations += 1
             pygame.display.update()
 
 if __name__ == '__main__':

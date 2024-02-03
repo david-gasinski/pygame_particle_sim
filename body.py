@@ -28,25 +28,7 @@ class Body:
     def update_force(self, new_force):
         self.force = new_force
 
-    # update vel and pos
-    def update(self):
-        # calulate and apply drag in air
-        drag = 0.5 * DRAG_COEFFICIENT * LIQUID_DENSITY * self.surface_area / 2 * math.pow(self.velocity[0][1], 2)
-        self.update_force(np.asarray([[0, -drag, 0]]))
-
-        # v = u + (force/mass)*t
-        self.velocity = self.velocity + (self.force / self.mass) * UPDATE_RATE # change to delta time
-        
-        # update y if terminal hasn't been reached
-        self.velocity[0][1] += (GRAVITY * UPDATE_RATE)
-
-
-        print(self.velocity[0][1])
-        # d = s * t
-        self.pos = self.pos + (self.velocity * UPDATE_RATE) 
-
     def collisions(self):
         # iterate through list of collision bodies and check if bounds intersect
-        
         # if barrier is hit, reverse direction
         return

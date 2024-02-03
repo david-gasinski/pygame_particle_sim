@@ -17,6 +17,7 @@ LIQUID_DENSITY = 998  # density of air at 101kPa and 273K
 class BodyType(Enum):
     PARTICLE = 1
     BORDER = 2
+    MEDIUM = 3 # liquid or gas
 
     @classmethod
     def get_body_from_id(cls, id):
