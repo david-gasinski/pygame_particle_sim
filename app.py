@@ -14,7 +14,7 @@ class App:
         pygame.display.set_caption(TITLE)
         self.clock = pygame.time.Clock()
         self.physics = PhysicsEngine()
-        self.physics.body_list.append(Body([[200,200,200]], 100, (0,0,255), 5, BodyType.PARTICLE))
+        self.physics.body_list.append(Body([[200,200,200]], 10, (0,0,255), 1, BodyType.PARTICLE))
     
     def run(self):
         iterations = 0

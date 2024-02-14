@@ -8,10 +8,10 @@ TITLE = "Particle Simulator"
 
 # PHYSICS
 STARTING_PARTICLES = 20
-GRAVITY = 9.81
+GRAVITY = 9.81 
 UPDATE_RATE = 0.005
 DRAG_COEFFICIENT = 0.47 # static for simulation purposes
-LIQUID_DENSITY = 998  # density of air at 101kPa and 273K  
+LIQUID_DENSITY = 1.204  # density of air at 101kPa and 273K  
 
 # COLLISION BODIES
 class BodyType(Enum):

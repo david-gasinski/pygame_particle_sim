@@ -14,11 +14,11 @@ class PhysicsEngine():
         self.body_list = []
     
     def drag(self, target: Body):
-        drag = 0.5 * DRAG_COEFFICIENT * LIQUID_DENSITY * target.surface_area / 2 * math.pow(target.velocity[0][1], 2)
+        drag = 0.5 * DRAG_COEFFICIENT * LIQUID_DENSITY * (target.surface_area / 2) * math.pow(target.velocity[0][1], 2)
         target.update_force(np.asarray([[0, -drag, 0]]))
 
     def motion(self, target: Body):
-        target.update_velocity(target.velocity + (target.force / target.mass) * UPDATE_RATE)
+        target.update_velocity(target.velocity + (target.force / target.mass))
         target.pos = target.pos + (target.velocity * UPDATE_RATE)
     
     def gravity(self, target: Body):
@@ -27,8 +27,7 @@ class PhysicsEngine():
     def run(self, iterations):
         for body in self.body_list:
             # apply motions
-            if (iterations == 0 ):
-                print(body.velocity)
+            print(body.velocity)
 
             self.gravity(body)
             self.drag(body)
